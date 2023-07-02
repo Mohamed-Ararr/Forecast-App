@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:weather_app/Core/AppColors.dart";
 import "package:weather_app/Core/AppRouter.dart";
 
 main() => {runApp(const ForecastApp())};
@@ -10,6 +11,11 @@ class ForecastApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: AppRouter.routes,
+      theme: ThemeData(
+        fontFamily: "Chakra Petch",
+        brightness: Brightness.dark,
+        canvasColor: AppColors.mainColor,
+      ),
     );
   }
 }
