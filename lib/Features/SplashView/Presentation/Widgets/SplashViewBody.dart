@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import "package:weather_app/Features/HomeView/Presentation/HomeView.dart";
+import "package:go_router/go_router.dart";
+import "package:weather_app/Core/AppRouter.dart";
 
 import "../../../../Core/AppFonts.dart";
 
@@ -13,7 +14,8 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), () => const HomeView());
+    Future.delayed(const Duration(seconds: 3),
+        () => GoRouter.of(context).pushReplacement(AppRouter.homeView));
     super.initState();
   }
 
