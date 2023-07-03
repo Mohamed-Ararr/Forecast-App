@@ -7,20 +7,23 @@ class CityContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        "Stuttgart",
-        style: AppFonts.cityFontStyle,
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.95,
+      child: ListTile(
+        title: Text(
+          "Stuttgart",
+          style: AppFonts.cityFontStyle,
+        ),
+        subtitle: const Text(
+          "12 September, Sunday",
+        ),
+        trailing: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.info_outline_rounded,
+              size: 30,
+            )),
       ),
-      subtitle: const Text(
-        "12 September, Sunday",
-      ),
-      trailing: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.info_outline_rounded,
-            size: 30,
-          )),
     );
   }
 }
