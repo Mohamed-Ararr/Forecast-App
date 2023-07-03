@@ -28,4 +28,9 @@ class AppFonts {
     fontWeight: FontWeight.bold,
     fontSize: 15,
   );
+
+  static TextStyle todayStyle = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
 }

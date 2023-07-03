@@ -7,16 +7,18 @@ class CityTempContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.95,
-      child: ListTile(
-        title: Text(
-          "18°",
-          style: AppFonts.cityTempStyle,
+    return Center(
+      child: SizedBox(
+        // width: MediaQuery.of(context).size.width * 0.9,
+        child: ListTile(
+          title: Text(
+            "18°",
+            style: AppFonts.cityTempStyle,
+          ),
+          subtitle: const Text("Thunderstorm"),
+          trailing: Image.network(
+              "https://cdn.weatherapi.com/weather/64x64/day/116.png"),
         ),
-        subtitle: const Text("Thunderstorm"),
-        trailing: Image.network(
-            "https://cdn.weatherapi.com/weather/64x64/day/116.png"),
       ),
     );
   }

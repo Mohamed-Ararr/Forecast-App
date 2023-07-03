@@ -8,8 +8,9 @@ class CityContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.95,
+      // width: MediaQuery.of(context).size.width * 0.95,
       child: ListTile(
+        contentPadding: EdgeInsets.zero,
         title: Text(
           "Stuttgart",
           style: AppFonts.cityFontStyle,
