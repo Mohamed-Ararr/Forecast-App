@@ -1,5 +1,8 @@
 import "package:flutter/material.dart";
+import "package:weather_app/Core/AppColors.dart";
 import "package:weather_app/Core/AppFonts.dart";
+
+import "CityContainer.dart";
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -11,26 +14,18 @@ class HomeViewBody extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ListTile(
-                title: Text(
-                  "Stuttgart",
-                  style: AppFonts.cityFontStyle,
-                ),
-                subtitle: const Text(
-                  "12 September, Sunday",
-                ),
-                trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.info_outline_rounded,
-                      size: 30,
-                    )),
-              ),
-              ListTile(
-                title: Text("18°"),
-                subtitle: Text("Thunderstorm"),
-                trailing: Image.network(
-                  "https://cdn.weatherapi.com/weather/64x64/night/113.png",
+              const CityContainer(),
+              const SizedBox(height: 15),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: ListTile(
+                  title: Text(
+                    "18°",
+                    style: AppFonts.cityTempStyle,
+                  ),
+                  subtitle: const Text("Thunderstorm"),
+                  trailing: Image.network(
+                      "https://cdn.weatherapi.com/weather/64x64/day/116.png"),
                 ),
               ),
             ],
