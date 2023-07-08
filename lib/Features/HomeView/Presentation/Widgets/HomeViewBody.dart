@@ -6,6 +6,7 @@ import "package:weather_app/Features/HomeView/Presentation/Widgets/CityDetailsBo
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityDetailsColumn.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityTempContainer.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/StatBox.dart";
+import "package:weather_app/Features/HomeView/Presentation/Widgets/StatsGridview.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecast.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecastBox.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecastListview.dart";
@@ -31,42 +32,13 @@ class HomeViewBody extends StatelessWidget {
                 const SizedBox(height: 25),
                 const CityDetailsBox(),
                 const SizedBox(height: 25),
-                const TodayForecast(),
+                const TodayForecast(title: "Today"),
                 const SizedBox(height: 15),
                 const TodayForecastListview(),
                 const SizedBox(height: 25),
-                Column(
-                  children: [
-                    Text(
-                      "Stats",
-                      style: AppFonts.todayStyle,
-                    ),
-                    const SizedBox(height: 5),
-                    Container(
-                      width: 7,
-                      height: 7,
-                      decoration: BoxDecoration(
-                        color: AppColors.whiteColor,
-                        borderRadius: kBorderRad15,
-                      ),
-                    ),
-                  ],
-                ),
+                const TodayForecast(title: "Stats"),
                 const SizedBox(height: 15),
-                GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 5,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    childAspectRatio: 1.5,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                  ),
-                  itemBuilder: (context, index) => StatBox(
-                    title: kStatList[index],
-                  ),
-                ),
+                const StatsGridview(),
               ],
             ),
           ),

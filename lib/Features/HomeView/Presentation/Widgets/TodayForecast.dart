@@ -5,14 +5,16 @@ import "../../../../Core/AppColors.dart";
 import "../../../../Core/AppFonts.dart";
 
 class TodayForecast extends StatelessWidget {
-  const TodayForecast({super.key});
+  const TodayForecast({super.key, required this.title});
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
-          "Today",
+          title,
           style: AppFonts.todayStyle,
         ),
         const SizedBox(height: 5),
