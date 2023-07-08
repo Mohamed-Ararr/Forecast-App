@@ -12,6 +12,7 @@ import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecast
 import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecastBox.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecastListview.dart";
 
+import "AstroBox.dart";
 import "CityContainer.dart";
 
 class HomeViewBody extends StatelessWidget {
@@ -43,25 +44,7 @@ class HomeViewBody extends StatelessWidget {
                 const SizedBox(height: 25),
                 const TodayForecast(title: "Astro"),
                 const SizedBox(height: 15),
-                Center(
-                  child: Container(
-                    padding: kPaddingAll10,
-                    decoration: BoxDecoration(
-                      borderRadius: kBorderRad15,
-                      color: AppColors.blueColor,
-                    ),
-                    // width: MediaQuery.of(context).size.width * .85,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        AstroColumn(
-                            image: sunrise, time: "6:10 AM", title: "Sunrise"),
-                        AstroColumn(
-                            image: sunset, time: "6:10 PM", title: "Sunset"),
-                      ],
-                    ),
-                  ),
-                ),
+                const AstroBox(),
                 const SizedBox(height: 15),
               ],
             ),
