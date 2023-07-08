@@ -15,8 +15,12 @@ class CityContainer extends StatelessWidget {
           "Stuttgart",
           style: AppFonts.cityFontStyle,
         ),
-        subtitle: const Text(
-          "12 September, Sunday",
+        subtitle: Row(
+          children: const [
+            Icon(Icons.location_on_rounded, size: 20),
+            SizedBox(width: 5),
+            Text("Algeria", style: TextStyle(fontSize: 16)),
+          ],
         ),
         trailing: IconButton(
             onPressed: () {},
