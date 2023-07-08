@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:weather_app/Core/AppRouter.dart';
 
 import '../../../../Core/AppFonts.dart';
 
@@ -23,7 +25,7 @@ class CityContainer extends StatelessWidget {
           ],
         ),
         trailing: IconButton(
-            onPressed: () {},
+            onPressed: () => GoRouter.of(context).push(AppRouter.cityView),
             icon: const Icon(
               Icons.info_outline_rounded,
               size: 30,
