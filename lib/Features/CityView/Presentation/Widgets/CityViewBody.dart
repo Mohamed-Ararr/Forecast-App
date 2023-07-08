@@ -1,9 +1,12 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 import "package:weather_app/ConstantValues.dart";
+import "package:weather_app/Core/AppColors.dart";
+import "package:weather_app/Features/CityView/Presentation/Widgets/CityRowDetail.dart";
 import "package:weather_app/Features/CityView/Presentation/Widgets/HorizontalTempContainer.dart";
 
 import "../../../../Core/AppFonts.dart";
+import "../../../HomeView/Presentation/Widgets/CityDetailsBox.dart";
 
 class CityViewBody extends StatelessWidget {
   const CityViewBody({super.key});
@@ -32,6 +35,32 @@ class CityViewBody extends StatelessWidget {
               children: [
                 const SizedBox(height: 10),
                 const HorizontalTempContainer(),
+                const SizedBox(height: 25),
+                const CityDetailsBox(),
+                const SizedBox(height: 25),
+                Column(
+                  children: [
+                    CityRowDetail(),
+                    SizedBox(height: 5),
+                    CityRowDetail(),
+                    SizedBox(height: 5),
+                    CityRowDetail(),
+                    SizedBox(height: 5),
+                    CityRowDetail(),
+                    SizedBox(height: 5),
+                    CityRowDetail(),
+                    SizedBox(height: 5),
+                    CityRowDetail(),
+                    SizedBox(height: 5),
+                    CityRowDetail(),
+                    SizedBox(height: 5),
+                    CityRowDetail(),
+                    SizedBox(height: 5),
+                    CityRowDetail(),
+                    SizedBox(height: 5),
+                    CityRowDetail(),
+                  ],
+                ),
               ],
             ),
           ),

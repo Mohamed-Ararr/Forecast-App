@@ -38,4 +38,8 @@ class AppFonts {
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
+
+  static TextStyle font15 = const TextStyle(
+    fontSize: 15,
+  );
 }
