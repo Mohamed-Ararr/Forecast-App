@@ -1,8 +1,6 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 import "package:weather_app/ConstantValues.dart";
-import "package:weather_app/Core/AppColors.dart";
-import "package:weather_app/Features/CityView/Presentation/Widgets/CustomAppBar.dart";
 import "package:weather_app/Features/CityView/Presentation/Widgets/HorizontalTempContainer.dart";
 
 import "../../../../Core/AppFonts.dart";
@@ -13,6 +11,19 @@ class CityViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Text(
+          "Stuttgart",
+          style: AppFonts.cityFontStyle,
+        ),
+        centerTitle: true,
+        leading: InkWell(
+          onTap: () => GoRouter.of(context).pop(),
+          child: const Icon(Icons.arrow_back_ios_new_rounded),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -20,8 +31,6 @@ class CityViewBody extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 10),
-                const CustomAppBar(),
-                const SizedBox(height: 25),
                 const HorizontalTempContainer(),
               ],
             ),
