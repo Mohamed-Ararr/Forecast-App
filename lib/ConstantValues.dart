@@ -10,3 +10,5 @@ List<String> kStatList = [
   "Max wind",
   "Avg Hum",
 ];
+const String sunrise = "Assets/Images/sunrise.png";
+const String sunset = "Assets/Images/sunset.png";

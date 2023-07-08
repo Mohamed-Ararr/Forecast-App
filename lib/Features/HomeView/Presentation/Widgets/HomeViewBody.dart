@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:weather_app/ConstantValues.dart";
 import "package:weather_app/Core/AppColors.dart";
 import "package:weather_app/Core/AppFonts.dart";
+import "package:weather_app/Features/HomeView/Presentation/Widgets/AstroColumn.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityDetailsBox.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityDetailsColumn.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityTempContainer.dart";
@@ -39,6 +40,29 @@ class HomeViewBody extends StatelessWidget {
                 const TodayForecast(title: "Stats"),
                 const SizedBox(height: 15),
                 const StatsGridview(),
+                const SizedBox(height: 25),
+                const TodayForecast(title: "Astro"),
+                const SizedBox(height: 15),
+                Center(
+                  child: Container(
+                    padding: kPaddingAll10,
+                    decoration: BoxDecoration(
+                      borderRadius: kBorderRad15,
+                      color: AppColors.blueColor,
+                    ),
+                    // width: MediaQuery.of(context).size.width * .85,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        AstroColumn(
+                            image: sunrise, time: "6:10 AM", title: "Sunrise"),
+                        AstroColumn(
+                            image: sunset, time: "6:10 PM", title: "Sunset"),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 15),
               ],
             ),
           ),
