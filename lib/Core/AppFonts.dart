@@ -33,4 +33,9 @@ class AppFonts {
     fontSize: 18,
     fontWeight: FontWeight.bold,
   );
+
+  static TextStyle statStyle = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
 }
