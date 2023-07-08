@@ -3,6 +3,7 @@ import "package:go_router/go_router.dart";
 import "package:weather_app/ConstantValues.dart";
 import "package:weather_app/Core/AppColors.dart";
 import "package:weather_app/Features/CityView/Presentation/Widgets/CustomAppBar.dart";
+import "package:weather_app/Features/CityView/Presentation/Widgets/HorizontalTempContainer.dart";
 
 import "../../../../Core/AppFonts.dart";
 
@@ -20,6 +21,8 @@ class CityViewBody extends StatelessWidget {
               children: [
                 const SizedBox(height: 10),
                 const CustomAppBar(),
+                const SizedBox(height: 25),
+                const HorizontalTempContainer(),
               ],
             ),
           ),
