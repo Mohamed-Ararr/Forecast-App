@@ -7,6 +7,7 @@ import "package:weather_app/Features/HomeView/Presentation/Widgets/CityDetailsCo
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityTempContainer.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecast.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecastBox.dart";
+import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecastListview.dart";
 
 import "CityContainer.dart";
 
@@ -31,18 +32,7 @@ class HomeViewBody extends StatelessWidget {
                 const SizedBox(height: 25),
                 const TodayForecast(),
                 const SizedBox(height: 15),
-                SizedBox(
-                  height: 120,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 20,
-                    itemBuilder: (context, index) =>
-                        TodayForecastBox(index: index),
-                  ),
-                ),
+                const TodayForecastListview(),
               ],
             ),
           ),
