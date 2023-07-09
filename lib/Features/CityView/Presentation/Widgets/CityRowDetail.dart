@@ -1,6 +1,7 @@
 import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
 import "package:weather_app/Core/AppFonts.dart";
+import "package:weather_app/Features/CityView/Presentation/Widgets/DisplayForecastImage.dart";
 
 import "../../../../ConstantValues.dart";
 import "../../../../Core/AppColors.dart";
@@ -33,20 +34,9 @@ class CityRowDetail extends StatelessWidget {
           "13°",
           style: AppFonts.font15,
         ),
-        CachedNetworkImage(
-          errorWidget: (context, url, error) => const Icon(Icons.error),
+        const DisplayForecastImage(
           imageUrl: "https://cdn.weatherapi.com/weather/64x64/day/113.png",
-          height: 45,
-          placeholder: (context, url) => const SizedBox(
-            height: 20,
-            width: 20,
-            child: CircularProgressIndicator(),
-          ),
         ),
-        // Image.network(
-        //   "https://cdn.weatherapi.com/weather/64x64/day/113.png",
-        //   scale: 1.5,
-        // ),
       ],
     );
   }
