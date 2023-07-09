@@ -2,7 +2,14 @@ import "package:flutter/material.dart";
 import "package:weather_app/Core/AppColors.dart";
 import "package:weather_app/Core/AppRouter.dart";
 
-main() => {runApp(const ForecastApp())};
+import "Core/serviceLocator.dart";
+
+void main() {
+  setupServiceLocator();
+  runApp(
+    const ForecastApp(),
+  );
+}
 
 class ForecastApp extends StatelessWidget {
   const ForecastApp({super.key});
