@@ -20,9 +20,18 @@ class CityDetailsBox extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: const [
-            CityDetailsColumn(num: "10 m/s", desc: "Wind"),
-            CityDetailsColumn(num: "98%", desc: "Humidity"),
-            CityDetailsColumn(num: "100%", desc: "Rain"),
+            CityDetailsColumn(
+                imageUrl: "Assets/Images/wind.png",
+                num: "10 m/s",
+                desc: "Wind"),
+            CityDetailsColumn(
+                imageUrl: "Assets/Images/humidity.png",
+                num: "98%",
+                desc: "Humidity"),
+            CityDetailsColumn(
+                imageUrl: "Assets/Images/raining.png",
+                num: "100%",
+                desc: "Rain"),
           ],
         ),
       ),
