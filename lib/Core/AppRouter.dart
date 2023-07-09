@@ -22,8 +22,8 @@ class AppRouter {
         path: homeView,
         builder: (context, state) => BlocProvider(
           create: (context) => FetchCityForecastCubit(
-            locator.get<HomeRepoImpl>()..fetchCity("setif"),
-          ),
+            locator.get<HomeRepoImpl>(),
+          )..fetchCity("setif"),
           child: const HomeView(),
         ),
       ),

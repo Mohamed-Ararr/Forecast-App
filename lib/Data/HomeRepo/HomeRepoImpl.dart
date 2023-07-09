@@ -16,7 +16,6 @@ class HomeRepoImpl implements HomeRepo {
       String cityName) async {
     try {
       Map<String, dynamic> data = await apiService.get(endPoint: "setif");
-      debugPrint("$data");
       return Right(data);
     } catch (e) {
       if (e is DioException) {
