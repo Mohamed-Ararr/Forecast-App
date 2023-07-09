@@ -13,11 +13,6 @@ class DisplayForecastImage extends StatelessWidget {
     return CachedNetworkImage(
       errorWidget: (context, url, error) => const Icon(Icons.error),
       imageUrl: imageUrl,
-      // placeholder: (context, url) => const SizedBox(
-      //   height: 20,
-      //   width: 20,
-      //   child: CircularProgressIndicator(),
-      // ),
       progressIndicatorBuilder: ((context, url, progress) => SizedBox(
             width: 25,
             height: 25,

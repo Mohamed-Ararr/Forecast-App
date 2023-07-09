@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:weather_app/Features/CityView/Presentation/Widgets/DisplayForecastImage.dart";
 
 import "../../../../ConstantValues.dart";
 import "../../../../Core/AppColors.dart";
@@ -22,10 +23,10 @@ class TodayForecastBox extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text("$index:00 am"),
-          Image.network(
-            "https://cdn.weatherapi.com/weather/64x64/day/116.png",
-            width: 40,
-          ),
+          const SizedBox(height: 10),
+          const DisplayForecastImage(
+              imageUrl: "https://cdn.weatherapi.com/weather/64x64/day/116.png"),
+          const SizedBox(height: 10),
           const Text("Wind"),
         ],
       ),

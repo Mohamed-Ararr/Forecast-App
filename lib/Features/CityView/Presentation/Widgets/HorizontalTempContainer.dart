@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:weather_app/Features/CityView/Presentation/Widgets/DisplayForecastImage.dart";
 
 import "../../../../Core/AppColors.dart";
 import "../../../../Core/AppFonts.dart";
@@ -24,10 +25,9 @@ class HorizontalTempContainer extends StatelessWidget {
                   fontSize: 13,
                   color: AppColors.greyColor,
                 )),
-            Image.network(
-              "https://cdn.weatherapi.com/weather/64x64/day/113.png",
-              scale: 1.5,
-            )
+            const DisplayForecastImage(
+                imageUrl:
+                    "https://cdn.weatherapi.com/weather/64x64/day/113.png"),
           ],
         ),
       ],

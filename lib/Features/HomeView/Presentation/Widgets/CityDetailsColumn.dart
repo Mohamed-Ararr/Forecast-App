@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:weather_app/Features/CityView/Presentation/Widgets/DisplayForecastImage.dart";
 
 import "../../../../Core/AppFonts.dart";
 
@@ -12,16 +13,14 @@ class CityDetailsColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.network(
-          "https://cdn.weatherapi.com/weather/64x64/day/116.png",
-          width: 40,
-        ),
+        const DisplayForecastImage(
+            imageUrl: "https://cdn.weatherapi.com/weather/64x64/day/116.png"),
         const SizedBox(height: 5),
         Text(
           num,
           style: AppFonts.cityNumbersDetailStyle,
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 10),
         Text(
           desc,
           style: AppFonts.cityDetailStyle,

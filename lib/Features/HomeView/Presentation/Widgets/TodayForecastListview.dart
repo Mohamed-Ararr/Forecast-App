@@ -8,7 +8,7 @@ class TodayForecastListview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
+      height: 140,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),

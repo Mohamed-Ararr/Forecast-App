@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:weather_app/Features/CityView/Presentation/Widgets/DisplayForecastImage.dart";
 
 import "../../../../Core/AppFonts.dart";
 
@@ -16,8 +17,8 @@ class CityTempContainer extends StatelessWidget {
             style: AppFonts.cityTempStyle,
           ),
           subtitle: const Text("Thunderstorm"),
-          trailing: Image.network(
-              "https://cdn.weatherapi.com/weather/64x64/day/116.png"),
+          trailing: const DisplayForecastImage(
+              imageUrl: "https://cdn.weatherapi.com/weather/64x64/day/116.png"),
         ),
       ),
     );
