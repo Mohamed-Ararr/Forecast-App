@@ -15,8 +15,9 @@ class FetchCityForecastCubit extends Cubit<FetchCityForecastState> {
   fetchCity(String cityName) async {
     emit(FetchCityForecastLoading());
 
-    Either<Failure, Map<String, dynamic>> result =
+    Either<Failure, ForecastModel> result =
         await homeRepoImpl.fetchCity("setif");
+
     result.fold(
       (failure) => emit(FetchCityForecastFailure(failure.errorMsg)),
       (success) => emit(FetchCityForecastSuccess(success)),

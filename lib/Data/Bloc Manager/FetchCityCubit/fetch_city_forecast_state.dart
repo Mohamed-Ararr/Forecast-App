@@ -8,9 +8,9 @@ class FetchCityForecastInitial extends FetchCityForecastState {}
 class FetchCityForecastLoading extends FetchCityForecastState {}
 
 class FetchCityForecastSuccess extends FetchCityForecastState {
-  final Map<String, dynamic> result;
+  final ForecastModel forecastModel;
 
-  FetchCityForecastSuccess(this.result);
+  FetchCityForecastSuccess(this.forecastModel);
 }
 
 class FetchCityForecastFailure extends FetchCityForecastState {

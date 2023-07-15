@@ -22,7 +22,9 @@ class HomeViewBody extends StatelessWidget {
       body: SafeArea(
         child: BlocBuilder<FetchCityForecastCubit, FetchCityForecastState>(
           builder: (context, state) {
+            print(state);
             if (state is FetchCityForecastSuccess) {
+              print(state.forecastModel);
               return SingleChildScrollView(
                 child: Padding(
                   padding: kPaddingLR15,
