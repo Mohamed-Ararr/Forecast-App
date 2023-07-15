@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather_app/Core/serviceLocator.dart';
 import 'package:weather_app/Data/Bloc%20Manager/FetchCityCubit/fetch_city_forecast_cubit.dart';
+import 'package:weather_app/Data/Models/ForecastModel/ForecastModel.dart';
 import 'package:weather_app/Features/HomeView/Presentation/HomeView.dart';
 import 'package:weather_app/Features/SplashView/Presentation/SplashView.dart';
 
@@ -29,7 +30,8 @@ class AppRouter {
       ),
       GoRoute(
         path: cityView,
-        builder: (context, state) => const CityView(),
+        builder: (context, state) =>
+            CityView(forecastModel: state.extra as ForecastModel),
       ),
     ],
   );

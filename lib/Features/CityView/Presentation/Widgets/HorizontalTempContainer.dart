@@ -5,7 +5,15 @@ import "../../../../Core/AppColors.dart";
 import "../../../../Core/AppFonts.dart";
 
 class HorizontalTempContainer extends StatelessWidget {
-  const HorizontalTempContainer({super.key});
+  const HorizontalTempContainer(
+      {super.key,
+      required this.temp,
+      required this.condition,
+      required this.imageUrl});
+
+  final double temp;
+  final String condition;
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -13,21 +21,19 @@ class HorizontalTempContainer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          "20°",
+          "$temp°",
           style: AppFonts.cityTempStyle,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Thunderstorm",
+            Text(condition,
                 style: TextStyle(
                   letterSpacing: 1,
                   fontSize: 13,
                   color: AppColors.greyColor,
                 )),
-            const DisplayForecastImage(
-                imageUrl:
-                    "https://cdn.weatherapi.com/weather/64x64/day/113.png"),
+            DisplayForecastImage(imageUrl: "https:$imageUrl"),
           ],
         ),
       ],
