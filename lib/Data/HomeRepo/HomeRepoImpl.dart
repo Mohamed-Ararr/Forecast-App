@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import "package:geolocator/geolocator.dart";
+import "package:geocoding/geocoding.dart";
 
 import 'package:weather_app/Core/Failure.dart';
 import 'package:weather_app/Data/HomeRepo/HomeRepo.dart';
@@ -18,8 +19,8 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, ForecastModel>> fetchCity(String cityName) async {
     try {
-      _getLocation();
-      Map<String, dynamic> data = await apiService.get(endPoint: "setif");
+      String city = await _getLocation();
+      Map<String, dynamic> data = await apiService.get(endPoint: city);
       ForecastModel forecastModel = ForecastModel(
         city: data["location"]["name"],
         country: data["location"]["country"],
@@ -50,14 +51,15 @@ class HomeRepoImpl implements HomeRepo {
   }
 }
 
-Future<void> _getLocation() async {
+Future<String> _getLocation() async {
   bool serviceEnabled;
   LocationPermission permission;
+  String getCity = "";
 
   serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) {
-    print('Location services are disabled.');
-    return;
+    debugPrint('Location services are disabled.');
+    return "";
   }
 
   permission = await Geolocator.checkPermission();
@@ -65,19 +67,32 @@ Future<void> _getLocation() async {
     permission = await Geolocator.requestPermission();
     if (permission != LocationPermission.whileInUse &&
         permission != LocationPermission.always) {
-      print('Location permissions are denied (actual value: $permission).');
-      return;
+      debugPrint(
+          'Location permissions are denied (actual value: $permission).');
+      return "";
     }
   }
 
   if (permission == LocationPermission.deniedForever) {
-    print(
+    debugPrint(
         'Location permissions are permanently denied, we cannot request permissions.');
-    return;
+    return "";
   }
 
   Position position = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high);
-  print('Latitude: ${position.latitude}');
-  print('Longitude: ${position.longitude}');
+
+  try {
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
+    if (placemarks.isNotEmpty) {
+      String city = placemarks[0].locality ?? "";
+      debugPrint('City: $city');
+      getCity = city;
+    }
+  } catch (e) {
+    debugPrint('Error: $e');
+    return "";
+  }
+  return getCity;
 }

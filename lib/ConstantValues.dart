@@ -9,7 +9,7 @@ List<String> kStatList = [
   "Min temp",
   "Avg temp",
   "Max wind",
-  "Avg Hum",
+  "Avg hum",
 ];
 const String sunrise = "Assets/Images/sunrise.png";
 const String sunset = "Assets/Images/sunset.png";

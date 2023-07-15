@@ -29,6 +29,7 @@ class HomeViewBody extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const SizedBox(height: 10),
                       CityContainer(forecastModel: state.forecastModel),
                       const SizedBox(height: 15),
                       CityTempContainer(forecastModel: state.forecastModel),

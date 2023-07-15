@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather_app/Core/AppRouter.dart';
 import 'package:weather_app/Data/Models/ForecastModel/ForecastModel.dart';
+import "package:font_awesome_flutter/font_awesome_flutter.dart";
 
 import '../../../../Core/AppFonts.dart';
 
@@ -22,7 +23,7 @@ class CityContainer extends StatelessWidget {
         ),
         subtitle: Row(
           children: [
-            const Icon(Icons.location_on_rounded, size: 20),
+            const Icon(FontAwesomeIcons.locationArrow, size: 18),
             const SizedBox(width: 5),
             Text(forecastModel.country ?? "Unavailable",
                 style: const TextStyle(fontSize: 16)),
@@ -34,8 +35,8 @@ class CityContainer extends StatelessWidget {
                   extra: forecastModel,
                 ),
             icon: const Icon(
-              Icons.info_outline_rounded,
-              size: 30,
+              FontAwesomeIcons.anglesRight,
+              size: 25,
             )),
       ),
     );
