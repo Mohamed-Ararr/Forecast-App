@@ -15,6 +15,7 @@ class ForecastModel {
   final double? avgHum;
   final String? sunrise;
   final String? sunset;
+  final List<dynamic>? days;
 
   ForecastModel({
     this.city,
@@ -33,5 +34,6 @@ class ForecastModel {
     this.avgHum,
     this.sunrise,
     this.sunset,
+    this.days,
   });
 }

@@ -37,16 +37,16 @@ class CityViewBody extends StatelessWidget {
             padding: kPaddingLR15,
             child: Column(
               children: [
-                // SizedBox(height: 10),
+                const SizedBox(height: 10),
                 HorizontalTempContainer(
                   temp: forecastModel.temp!,
                   condition: forecastModel.textCondition!,
                   imageUrl: forecastModel.imageCondition!,
                 ),
                 const SizedBox(height: 25),
-                // CityDetailsBox(),
+                CityDetailsBox(forecastModel: forecastModel),
                 const SizedBox(height: 25),
-                const ForecastColumnTenDays(),
+                ForecastColumnTenDays(forecastModel: forecastModel),
               ],
             ),
           ),

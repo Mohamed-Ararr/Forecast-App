@@ -34,6 +34,7 @@ class HomeRepoImpl implements HomeRepo {
         avgHum: data["forecast"]["forecastday"][0]["day"]["avghumidity"],
         sunrise: data["forecast"]["forecastday"][0]["astro"]["sunrise"],
         sunset: data["forecast"]["forecastday"][0]["astro"]["sunset"],
+        days: data["forecast"]["forecastday"],
       );
       return Right(forecastModel);
     } catch (e) {
