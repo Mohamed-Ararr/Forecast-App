@@ -6,6 +6,7 @@ import "package:weather_app/main.dart";
 
 import "../../../../ConstantValues.dart";
 import "../../../../Core/AppColors.dart";
+import "../../../../Core/AppFonts.dart";
 
 class TodayForecastBox extends StatelessWidget {
   const TodayForecastBox({
@@ -14,11 +15,13 @@ class TodayForecastBox extends StatelessWidget {
     required this.imageUrl,
     required this.condition,
     required this.index,
+    required this.temp,
   });
 
   final String hour;
   final String imageUrl;
   final String condition;
+  final double temp;
   final int index;
 
   @override
@@ -46,6 +49,12 @@ class TodayForecastBox extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             condition,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 10),
+          Text(
+            "$temp°",
+            style: AppFonts.cityNumbersDetailStyle,
             textAlign: TextAlign.center,
           ),
         ],

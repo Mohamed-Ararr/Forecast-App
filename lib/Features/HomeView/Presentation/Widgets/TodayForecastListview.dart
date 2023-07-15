@@ -11,7 +11,7 @@ class TodayForecastListview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 160,
+      height: 200,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
@@ -22,6 +22,7 @@ class TodayForecastListview extends StatelessWidget {
           hour: forecastModel.hourly![index]["time"].split(" ")[1],
           imageUrl: forecastModel.hourly![index]["condition"]["icon"],
           condition: forecastModel.hourly![index]["condition"]["text"],
+          temp: forecastModel.hourly![index]["temp_c"],
           index: index,
         ),
       ),

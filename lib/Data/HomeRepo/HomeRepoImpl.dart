@@ -16,7 +16,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, ForecastModel>> fetchCity(String cityName) async {
     try {
-      Map<String, dynamic> data = await apiService.get(endPoint: "milan");
+      Map<String, dynamic> data = await apiService.get(endPoint: "setif");
       ForecastModel forecastModel = ForecastModel(
         city: data["location"]["name"],
         country: data["location"]["country"],
