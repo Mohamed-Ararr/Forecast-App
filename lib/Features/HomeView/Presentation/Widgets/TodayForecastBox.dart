@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:intl/intl.dart";
 import "package:weather_app/Data/Models/ForecastModel/ForecastModel.dart";
 import "package:weather_app/Features/CityView/Presentation/Widgets/DisplayForecastImage.dart";
 import "package:weather_app/main.dart";
@@ -22,6 +23,12 @@ class TodayForecastBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String timeString = hour;
+    DateFormat inputFormat = DateFormat("HH:mm");
+    DateFormat outputFormat = DateFormat('h:mm a');
+
+    DateTime time = inputFormat.parse(timeString);
+    String convertedTime = outputFormat.format(time);
     return Container(
       decoration: BoxDecoration(
         borderRadius: kBorderRad15,
@@ -33,11 +40,14 @@ class TodayForecastBox extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text(hour),
+          Text(convertedTime),
           const SizedBox(height: 10),
           DisplayForecastImage(imageUrl: "https:$imageUrl"),
           const SizedBox(height: 10),
-          Text(condition),
+          Text(
+            condition,
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     );
