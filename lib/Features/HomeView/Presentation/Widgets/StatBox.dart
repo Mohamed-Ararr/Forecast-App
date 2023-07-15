@@ -14,7 +14,7 @@ class StatBox extends StatelessWidget {
       this.color});
 
   final String title;
-  final double num;
+  final String num;
   final IconData icon;
   final Color? color;
 
@@ -33,7 +33,7 @@ class StatBox extends StatelessWidget {
             color: color,
           ),
           Text(title, style: AppFonts.statStyle),
-          Text("$num°"),
+          Text(num),
         ],
       ),
     );

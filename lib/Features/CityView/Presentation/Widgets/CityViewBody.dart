@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:go_router/go_router.dart";
 import "package:weather_app/ConstantValues.dart";
 import "package:weather_app/Core/AppColors.dart";
@@ -28,7 +29,7 @@ class CityViewBody extends StatelessWidget {
         centerTitle: true,
         leading: InkWell(
           onTap: () => GoRouter.of(context).pop(),
-          child: const Icon(Icons.arrow_back_ios_new_rounded),
+          child: const Icon(FontAwesomeIcons.arrowLeft),
         ),
       ),
       body: SafeArea(

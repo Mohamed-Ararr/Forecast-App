@@ -23,32 +23,32 @@ class StatsGridview extends StatelessWidget {
         mainAxisSpacing: 10,
       ),
       itemBuilder: (context, index) {
-        double num = 0.0;
+        String num = "";
         IconData icon = FontAwesomeIcons.temperatureHigh;
         Color color = Colors.white;
 
         switch (kStatList[index]) {
           case "Max temp":
-            num = forecastModel.maxTemp!;
+            num = "${forecastModel.maxTemp!}°";
             icon;
             color = const Color.fromARGB(255, 250, 87, 75);
             break;
           case "Min temp":
-            num = forecastModel.minTemp!;
+            num = "${forecastModel.minTemp!}°";
             icon = FontAwesomeIcons.temperatureLow;
             color = Colors.blue;
             break;
           case "Avg temp":
-            num = forecastModel.avgTemp!;
+            num = "${forecastModel.avgTemp!}°";
             icon = FontAwesomeIcons.temperatureEmpty;
             break;
           case "Max wind":
-            num = forecastModel.maxWind!;
+            num = "${forecastModel.maxWind!}km/h";
             icon = FontAwesomeIcons.wind;
             color = const Color.fromARGB(255, 106, 179, 248);
             break;
           case "Avg hum":
-            num = forecastModel.avgHum!;
+            num = "${forecastModel.avgHum!}%";
             icon = FontAwesomeIcons.droplet;
             color = const Color.fromARGB(255, 20, 134, 241);
             break;
