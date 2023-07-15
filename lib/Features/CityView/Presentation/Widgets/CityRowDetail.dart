@@ -58,7 +58,7 @@ class CityRowDetail extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 2,
+          flex: 1,
           child: Center(
             child: DisplayForecastImage(
               imageUrl: "https:$imageUrl",

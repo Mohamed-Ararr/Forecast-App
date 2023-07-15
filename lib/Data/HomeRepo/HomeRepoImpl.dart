@@ -3,6 +3,8 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
+import "package:geolocator/geolocator.dart";
+
 import 'package:weather_app/Core/Failure.dart';
 import 'package:weather_app/Data/HomeRepo/HomeRepo.dart';
 import 'package:weather_app/Data/Services/ApiService.dart';
@@ -16,6 +18,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, ForecastModel>> fetchCity(String cityName) async {
     try {
+      _getLocation();
       Map<String, dynamic> data = await apiService.get(endPoint: "setif");
       ForecastModel forecastModel = ForecastModel(
         city: data["location"]["name"],
@@ -45,4 +48,36 @@ class HomeRepoImpl implements HomeRepo {
       }
     }
   }
+}
+
+Future<void> _getLocation() async {
+  bool serviceEnabled;
+  LocationPermission permission;
+
+  serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  if (!serviceEnabled) {
+    print('Location services are disabled.');
+    return;
+  }
+
+  permission = await Geolocator.checkPermission();
+  if (permission == LocationPermission.denied) {
+    permission = await Geolocator.requestPermission();
+    if (permission != LocationPermission.whileInUse &&
+        permission != LocationPermission.always) {
+      print('Location permissions are denied (actual value: $permission).');
+      return;
+    }
+  }
+
+  if (permission == LocationPermission.deniedForever) {
+    print(
+        'Location permissions are permanently denied, we cannot request permissions.');
+    return;
+  }
+
+  Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high);
+  print('Latitude: ${position.latitude}');
+  print('Longitude: ${position.longitude}');
 }
