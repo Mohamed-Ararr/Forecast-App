@@ -43,7 +43,7 @@ class StatsGridview extends StatelessWidget {
             icon = FontAwesomeIcons.temperatureEmpty;
             break;
           case "Max wind":
-            num = "${forecastModel.maxWind!}km/h";
+            num = "${forecastModel.maxWind!}m/h";
             icon = FontAwesomeIcons.wind;
             color = const Color.fromARGB(255, 106, 179, 248);
             break;

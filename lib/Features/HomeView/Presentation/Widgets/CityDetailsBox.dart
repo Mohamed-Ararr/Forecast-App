@@ -25,7 +25,7 @@ class CityDetailsBox extends StatelessWidget {
           children: [
             CityDetailsColumn(
                 imageUrl: "Assets/Images/wind.png",
-                num: "${forecastModel.windSpeed} m/s",
+                num: "${forecastModel.windSpeed}m/s",
                 desc: "Wind"),
             CityDetailsColumn(
                 imageUrl: "Assets/Images/humidity.png",

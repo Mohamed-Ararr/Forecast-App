@@ -1,9 +1,11 @@
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
+import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:weather_app/ConstantValues.dart";
 import "package:weather_app/Core/AppColors.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityDetailsBox.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityTempContainer.dart";
+import "package:weather_app/Features/HomeView/Presentation/Widgets/FloatingButton.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/StatsGridview.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecast.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecastListview.dart";
@@ -13,12 +15,18 @@ import "AstroBox.dart";
 import "CityContainer.dart";
 import "LoadingProgress.dart";
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
 
   @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: const FloatingButton(),
       body: SafeArea(
         child: BlocBuilder<FetchCityForecastCubit, FetchCityForecastState>(
           builder: (context, state) {
