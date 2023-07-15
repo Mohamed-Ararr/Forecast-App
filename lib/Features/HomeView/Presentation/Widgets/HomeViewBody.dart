@@ -22,33 +22,34 @@ class HomeViewBody extends StatelessWidget {
       body: SafeArea(
         child: BlocBuilder<FetchCityForecastCubit, FetchCityForecastState>(
           builder: (context, state) {
-            print(state);
             if (state is FetchCityForecastSuccess) {
-              print(state.forecastModel);
               return SingleChildScrollView(
                 child: Padding(
                   padding: kPaddingLR15,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      CityContainer(),
-                      SizedBox(height: 15),
-                      CityTempContainer(),
-                      SizedBox(height: 25),
-                      CityDetailsBox(),
-                      SizedBox(height: 25),
-                      TodayForecast(title: "Today"),
-                      SizedBox(height: 15),
-                      TodayForecastListview(),
-                      SizedBox(height: 25),
-                      TodayForecast(title: "Stats"),
-                      SizedBox(height: 15),
-                      StatsGridview(),
-                      SizedBox(height: 25),
-                      TodayForecast(title: "Astro"),
-                      SizedBox(height: 15),
-                      AstroBox(),
-                      SizedBox(height: 15),
+                    children: [
+                      CityContainer(forecastModel: state.forecastModel),
+                      const SizedBox(height: 15),
+                      CityTempContainer(forecastModel: state.forecastModel),
+                      const SizedBox(height: 25),
+                      CityDetailsBox(forecastModel: state.forecastModel),
+                      const SizedBox(height: 25),
+                      const TodayForecast(title: "Today"),
+                      const SizedBox(height: 15),
+                      TodayForecastListview(forecastModel: state.forecastModel),
+                      const SizedBox(height: 25),
+                      const TodayForecast(title: "Stats"),
+                      const SizedBox(height: 15),
+                      StatsGridview(forecastModel: state.forecastModel),
+                      const SizedBox(height: 25),
+                      const TodayForecast(title: "Astro"),
+                      const SizedBox(height: 15),
+                      AstroBox(
+                        sunriseTime: state.forecastModel.sunrise!,
+                        sunsetTime: state.forecastModel.sunset!,
+                      ),
+                      const SizedBox(height: 15),
                     ],
                   ),
                 ),

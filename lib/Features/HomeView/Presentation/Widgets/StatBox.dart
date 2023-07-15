@@ -5,9 +5,10 @@ import "../../../../Core/AppColors.dart";
 import "../../../../Core/AppFonts.dart";
 
 class StatBox extends StatelessWidget {
-  const StatBox({super.key, required this.title});
+  const StatBox({super.key, required this.title, required this.num});
 
   final String title;
+  final double num;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class StatBox extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(title, style: AppFonts.statStyle),
-          const Text("41°"),
+          Text("$num°"),
         ],
       ),
     );

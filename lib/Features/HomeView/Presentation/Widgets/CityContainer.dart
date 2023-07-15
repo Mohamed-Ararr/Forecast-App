@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather_app/Core/AppRouter.dart';
+import 'package:weather_app/Data/Models/ForecastModel/ForecastModel.dart';
 
 import '../../../../Core/AppFonts.dart';
 
 class CityContainer extends StatelessWidget {
-  const CityContainer({super.key});
+  const CityContainer({super.key, required this.forecastModel});
+
+  final ForecastModel forecastModel;
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +17,15 @@ class CityContainer extends StatelessWidget {
       child: ListTile(
         contentPadding: EdgeInsets.zero,
         title: Text(
-          "Stuttgart",
+          forecastModel.city ?? "Unavailable",
           style: AppFonts.cityFontStyle,
         ),
         subtitle: Row(
-          children: const [
-            Icon(Icons.location_on_rounded, size: 20),
-            SizedBox(width: 5),
-            Text("Algeria", style: TextStyle(fontSize: 16)),
+          children: [
+            const Icon(Icons.location_on_rounded, size: 20),
+            const SizedBox(width: 5),
+            Text(forecastModel.country ?? "Unavailable",
+                style: const TextStyle(fontSize: 16)),
           ],
         ),
         trailing: IconButton(

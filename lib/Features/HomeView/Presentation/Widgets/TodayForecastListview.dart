@@ -1,9 +1,12 @@
 import "package:flutter/material.dart";
+import "package:weather_app/Data/Models/ForecastModel/ForecastModel.dart";
 
 import "TodayForecastBox.dart";
 
 class TodayForecastListview extends StatelessWidget {
-  const TodayForecastListview({super.key});
+  const TodayForecastListview({super.key, required this.forecastModel});
+
+  final ForecastModel forecastModel;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +17,13 @@ class TodayForecastListview extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: 20,
-        itemBuilder: (context, index) => TodayForecastBox(index: index),
+        itemCount: forecastModel.hourly!.length,
+        itemBuilder: (context, index) => TodayForecastBox(
+          hour: forecastModel.hourly![index]["time"].split(" ")[1],
+          imageUrl: forecastModel.hourly![index]["condition"]["icon"],
+          condition: forecastModel.hourly![index]["condition"]["text"],
+          index: index,
+        ),
       ),
     );
   }

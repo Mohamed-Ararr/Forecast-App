@@ -1,12 +1,23 @@
 import "package:flutter/material.dart";
+import "package:weather_app/Data/Models/ForecastModel/ForecastModel.dart";
 import "package:weather_app/Features/CityView/Presentation/Widgets/DisplayForecastImage.dart";
+import "package:weather_app/main.dart";
 
 import "../../../../ConstantValues.dart";
 import "../../../../Core/AppColors.dart";
 
 class TodayForecastBox extends StatelessWidget {
-  const TodayForecastBox({super.key, required this.index});
+  const TodayForecastBox({
+    super.key,
+    required this.hour,
+    required this.imageUrl,
+    required this.condition,
+    required this.index,
+  });
 
+  final String hour;
+  final String imageUrl;
+  final String condition;
   final int index;
 
   @override
@@ -18,16 +29,15 @@ class TodayForecastBox extends StatelessWidget {
       ),
       padding: kPaddingAll10,
       width: 100,
-      margin: index == 19 ? null : const EdgeInsets.only(right: 10),
+      margin: index == 23 ? null : const EdgeInsets.only(right: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text("$index:00 am"),
+          Text(hour),
           const SizedBox(height: 10),
-          const DisplayForecastImage(
-              imageUrl: "https://cdn.weatherapi.com/weather/64x64/day/116.png"),
+          DisplayForecastImage(imageUrl: "https:$imageUrl"),
           const SizedBox(height: 10),
-          const Text("Wind"),
+          Text(condition),
         ],
       ),
     );

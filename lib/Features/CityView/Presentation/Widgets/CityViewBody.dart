@@ -37,7 +37,7 @@ class CityViewBody extends StatelessWidget {
                 SizedBox(height: 10),
                 HorizontalTempContainer(),
                 SizedBox(height: 25),
-                CityDetailsBox(),
+                // CityDetailsBox(),
                 SizedBox(height: 25),
                 ForecastColumnTenDays(),
               ],

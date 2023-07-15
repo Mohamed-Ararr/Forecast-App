@@ -1,10 +1,13 @@
 import "package:flutter/material.dart";
+import "package:weather_app/Data/Models/ForecastModel/ForecastModel.dart";
 
 import "../../../../ConstantValues.dart";
 import "StatBox.dart";
 
 class StatsGridview extends StatelessWidget {
-  const StatsGridview({super.key});
+  const StatsGridview({super.key, required this.forecastModel});
+
+  final ForecastModel forecastModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +21,30 @@ class StatsGridview extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
       ),
-      itemBuilder: (context, index) => StatBox(
-        title: kStatList[index],
-      ),
+      itemBuilder: (context, index) {
+        double num = 0.0;
+        switch (kStatList[index]) {
+          case "Max temp":
+            num = forecastModel.maxTemp!;
+            break;
+          case "Min temp":
+            num = forecastModel.minTemp!;
+            break;
+          case "Avg temp":
+            num = forecastModel.avgTemp!;
+            break;
+          case "Max wind":
+            num = forecastModel.maxWind!;
+            break;
+          case "Avg hum":
+            num = forecastModel.avgHum!;
+            break;
+        }
+        return StatBox(
+          title: kStatList[index],
+          num: num,
+        );
+      },
     );
   }
 }

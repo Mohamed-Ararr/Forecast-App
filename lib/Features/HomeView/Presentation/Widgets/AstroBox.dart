@@ -5,7 +5,11 @@ import "../../../../Core/AppColors.dart";
 import "AstroColumn.dart";
 
 class AstroBox extends StatelessWidget {
-  const AstroBox({super.key});
+  const AstroBox(
+      {super.key, required this.sunriseTime, required this.sunsetTime});
+
+  final String sunriseTime;
+  final String sunsetTime;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +23,9 @@ class AstroBox extends StatelessWidget {
         // width: MediaQuery.of(context).size.width * .85,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            AstroColumn(image: sunrise, time: "6:10 AM", title: "Sunrise"),
-            AstroColumn(image: sunset, time: "6:10 PM", title: "Sunset"),
+          children: [
+            AstroColumn(image: sunrise, time: sunriseTime, title: "Sunrise"),
+            AstroColumn(image: sunset, time: sunsetTime, title: "Sunset"),
           ],
         ),
       ),
