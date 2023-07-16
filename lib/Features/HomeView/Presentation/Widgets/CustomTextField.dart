@@ -21,7 +21,7 @@ class CustomTextField extends StatelessWidget {
         }
       },
       decoration: InputDecoration(
-        hintText: "Search for a city",
+        hintText: "Enter city name",
         border: OutlineInputBorder(
           borderRadius: kBorderRad10,
         ),
