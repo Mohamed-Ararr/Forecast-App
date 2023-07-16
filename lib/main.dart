@@ -20,8 +20,7 @@ class ForecastApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<FetchCityForecastCubit>(
-      create: (context) => FetchCityForecastCubit(locator.get<HomeRepoImpl>())
-        ..fetchCity("setif"),
+      create: (context) => FetchCityForecastCubit(locator.get<HomeRepoImpl>()),
       child: MaterialApp.router(
         routerConfig: AppRouter.routes,
         theme: ThemeData(

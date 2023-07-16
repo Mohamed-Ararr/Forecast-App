@@ -30,10 +30,13 @@ class CityContainer extends StatelessWidget {
           ],
         ),
         trailing: IconButton(
-            onPressed: () => GoRouter.of(context).push(
-                  AppRouter.cityView,
-                  extra: forecastModel,
-                ),
+            onPressed: () {
+              GoRouter.of(context).push(
+                AppRouter.cityView,
+                extra: forecastModel,
+              );
+              debugPrint("${forecastModel.days?.length}");
+            },
             icon: const Icon(
               FontAwesomeIcons.anglesRight,
               size: 25,

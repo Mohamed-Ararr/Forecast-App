@@ -65,6 +65,10 @@ class _SearchViewBodyState extends State<SearchViewBody> {
     return getCity;
   }
 
+  GlobalKey<FormState> key = GlobalKey<FormState>();
+  String? city;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,13 +84,26 @@ class _SearchViewBodyState extends State<SearchViewBody> {
                 style: AppFonts.appTitle,
               ),
               const Spacer(),
-              const CustomTextField(),
+              Form(
+                key: key,
+                autovalidateMode: autovalidateMode,
+                child: CustomTextField(
+                  onChanged: (value) => city = value,
+                ),
+              ),
               const Spacer(),
-              const ConfirmButton(),
+              ConfirmButton(
+                onPressed: () {
+                  GoRouter.of(context).push(
+                    AppRouter.homeView,
+                    extra: city,
+                  );
+                },
+              ),
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () async {
-                  String city = await _getLocation();
+                  city = await _getLocation();
                   GoRouter.of(context).push(
                     AppRouter.homeView,
                     extra: city,

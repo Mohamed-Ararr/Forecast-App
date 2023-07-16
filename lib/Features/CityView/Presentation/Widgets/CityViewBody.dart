@@ -10,6 +10,7 @@ import "package:weather_app/Features/CityView/Presentation/Widgets/HorizontalTem
 
 import "../../../../Core/AppFonts.dart";
 import "../../../HomeView/Presentation/Widgets/CityDetailsBox.dart";
+import "../../../HomeView/Presentation/Widgets/TodayForecast.dart";
 
 class CityViewBody extends StatelessWidget {
   const CityViewBody({super.key, required this.forecastModel});
@@ -37,6 +38,7 @@ class CityViewBody extends StatelessWidget {
           child: Padding(
             padding: kPaddingLR15,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 10),
                 HorizontalTempContainer(
@@ -47,6 +49,8 @@ class CityViewBody extends StatelessWidget {
                 const SizedBox(height: 25),
                 CityDetailsBox(forecastModel: forecastModel),
                 const SizedBox(height: 25),
+                const TodayForecast(title: "Next days"),
+                const SizedBox(height: 15),
                 ForecastColumnTenDays(forecastModel: forecastModel),
               ],
             ),

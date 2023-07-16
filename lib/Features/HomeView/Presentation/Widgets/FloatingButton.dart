@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
-import "package:weather_app/Features/HomeView/Presentation/Widgets/CustomBottomSheet.dart";
+import "package:go_router/go_router.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CustomTextField.dart";
 
 import "../../../../ConstantValues.dart";
@@ -19,18 +19,9 @@ class _FloatingButtonState extends State<FloatingButton> {
     return FloatingActionButton(
       backgroundColor: AppColors.whiteColor,
       onPressed: () {
-        showModalBottomSheet(
-          isScrollControlled: true,
-          shape: RoundedRectangleBorder(
-            borderRadius: kBorderRad15,
-          ),
-          context: context,
-          builder: (context) {
-            return const CustomBottomSheet();
-          },
-        );
+        GoRouter.of(context).pop();
       },
-      child: const Icon(FontAwesomeIcons.magnifyingGlass),
+      child: const Icon(FontAwesomeIcons.rightFromBracket),
     );
   }
 }
