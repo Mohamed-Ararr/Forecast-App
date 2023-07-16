@@ -37,14 +37,23 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
             key: key,
             autovalidateMode: autovalidateMode,
             child: CustomTextField(
-              onChanged: (value) => city = value,
-              onSaved: (value) => city = value,
+              onChanged: (value) {
+                setState(() {
+                  city = value;
+                });
+              },
+              onSaved: (value) {
+                setState(() {
+                  city = value;
+                });
+              },
             ),
           ),
           ConfirmButton(
             onPressed: () {
               if (key.currentState!.validate()) {
                 key.currentState!.save();
+                debugPrint(city);
               } else {
                 setState(() {
                   autovalidateMode = AutovalidateMode.always;
