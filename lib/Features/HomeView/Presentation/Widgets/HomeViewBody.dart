@@ -1,11 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
-import "package:font_awesome_flutter/font_awesome_flutter.dart";
-import "package:geocoding/geocoding.dart";
-import "package:geolocator/geolocator.dart";
 import "package:weather_app/ConstantValues.dart";
-import "package:weather_app/Core/AppColors.dart";
-import "package:weather_app/Core/serviceLocator.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityDetailsBox.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityTempContainer.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/FloatingButton.dart";

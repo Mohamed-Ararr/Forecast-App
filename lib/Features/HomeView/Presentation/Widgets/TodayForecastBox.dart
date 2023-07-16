@@ -1,8 +1,6 @@
 import "package:flutter/material.dart";
 import "package:intl/intl.dart";
-import "package:weather_app/Data/Models/ForecastModel/ForecastModel.dart";
 import "package:weather_app/Features/CityView/Presentation/Widgets/DisplayForecastImage.dart";
-import "package:weather_app/main.dart";
 
 import "../../../../ConstantValues.dart";
 import "../../../../Core/AppColors.dart";

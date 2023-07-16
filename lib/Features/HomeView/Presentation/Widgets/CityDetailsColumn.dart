@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:weather_app/Features/CityView/Presentation/Widgets/DisplayForecastImage.dart";
 
 import "../../../../Core/AppFonts.dart";
 

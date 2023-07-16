@@ -3,9 +3,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-import "package:geolocator/geolocator.dart";
-import "package:geocoding/geocoding.dart";
-
 import 'package:weather_app/Core/Failure.dart';
 import 'package:weather_app/Data/HomeRepo/HomeRepo.dart';
 import 'package:weather_app/Data/Services/ApiService.dart';

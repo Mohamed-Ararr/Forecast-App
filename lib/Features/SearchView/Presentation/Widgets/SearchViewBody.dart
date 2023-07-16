@@ -1,13 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import "package:flutter/material.dart";
-import "package:flutter_bloc/flutter_bloc.dart";
 import "package:geocoding/geocoding.dart";
 import "package:geolocator/geolocator.dart";
 import "package:go_router/go_router.dart";
 import "package:weather_app/ConstantValues.dart";
 import "package:weather_app/Core/AppFonts.dart";
 import "package:weather_app/Core/AppRouter.dart";
-import "package:weather_app/Core/serviceLocator.dart";
-import "package:weather_app/Data/Bloc%20Manager/FetchCityCubit/fetch_city_forecast_cubit.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/ConfirmButton.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CustomTextField.dart";
 

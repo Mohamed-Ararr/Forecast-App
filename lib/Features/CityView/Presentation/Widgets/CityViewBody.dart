@@ -2,9 +2,7 @@ import "package:flutter/material.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:go_router/go_router.dart";
 import "package:weather_app/ConstantValues.dart";
-import "package:weather_app/Core/AppColors.dart";
 import "package:weather_app/Data/Models/ForecastModel/ForecastModel.dart";
-import "package:weather_app/Features/CityView/Presentation/Widgets/CityRowDetail.dart";
 import "package:weather_app/Features/CityView/Presentation/Widgets/ForecastColumnTenDays.dart";
 import "package:weather_app/Features/CityView/Presentation/Widgets/HorizontalTempContainer.dart";
 

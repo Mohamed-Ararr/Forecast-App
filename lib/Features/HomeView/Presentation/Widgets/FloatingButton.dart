@@ -1,9 +1,7 @@
 import "package:flutter/material.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:go_router/go_router.dart";
-import "package:weather_app/Features/HomeView/Presentation/Widgets/CustomTextField.dart";
 
-import "../../../../ConstantValues.dart";
 import "../../../../Core/AppColors.dart";
 
 class FloatingButton extends StatefulWidget {
