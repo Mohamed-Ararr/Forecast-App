@@ -16,7 +16,7 @@ class FetchCityForecastCubit extends Cubit<FetchCityForecastState> {
     emit(FetchCityForecastLoading());
 
     Either<Failure, ForecastModel> result =
-        await homeRepoImpl.fetchCity("setif");
+        await homeRepoImpl.fetchCity(cityName);
 
     result.fold(
       (failure) => emit(FetchCityForecastFailure(failure.errorMsg)),

@@ -19,8 +19,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, ForecastModel>> fetchCity(String cityName) async {
     try {
-      String city = await _getLocation();
-      Map<String, dynamic> data = await apiService.get(endPoint: city);
+      Map<String, dynamic> data = await apiService.get(cityName);
       ForecastModel forecastModel = ForecastModel(
         city: data["location"]["name"],
         country: data["location"]["country"],
@@ -50,50 +49,4 @@ class HomeRepoImpl implements HomeRepo {
       }
     }
   }
-}
-
-Future<String> _getLocation() async {
-  bool serviceEnabled;
-  LocationPermission permission;
-  String getCity = "";
-
-  serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) {
-    debugPrint('Location services are disabled.');
-    return "";
-  }
-
-  permission = await Geolocator.checkPermission();
-  if (permission == LocationPermission.denied) {
-    permission = await Geolocator.requestPermission();
-    if (permission != LocationPermission.whileInUse &&
-        permission != LocationPermission.always) {
-      debugPrint(
-          'Location permissions are denied (actual value: $permission).');
-      return "";
-    }
-  }
-
-  if (permission == LocationPermission.deniedForever) {
-    debugPrint(
-        'Location permissions are permanently denied, we cannot request permissions.');
-    return "";
-  }
-
-  Position position = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high);
-
-  try {
-    List<Placemark> placemarks =
-        await placemarkFromCoordinates(position.latitude, position.longitude);
-    if (placemarks.isNotEmpty) {
-      String city = placemarks[0].locality ?? "";
-      debugPrint('City: $city');
-      getCity = city;
-    }
-  } catch (e) {
-    debugPrint('Error: $e');
-    return "";
-  }
-  return getCity;
 }
