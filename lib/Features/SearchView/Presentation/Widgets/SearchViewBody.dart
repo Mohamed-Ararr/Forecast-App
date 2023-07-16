@@ -93,10 +93,15 @@ class _SearchViewBodyState extends State<SearchViewBody> {
               const Spacer(),
               ConfirmButton(
                 onPressed: () {
-                  GoRouter.of(context).push(
-                    AppRouter.homeView,
-                    extra: city,
-                  );
+                  if (key.currentState!.validate()) {
+                    key.currentState!.save();
+                    GoRouter.of(context).push(
+                      AppRouter.homeView,
+                      extra: city,
+                    );
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                  }
                 },
               ),
               const SizedBox(height: 10),
