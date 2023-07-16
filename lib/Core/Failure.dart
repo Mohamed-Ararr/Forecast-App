@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 abstract class Failure {
   final String errorMsg;
@@ -33,6 +34,10 @@ class ServerFailure extends Failure {
         return ServerFailure("Request to API server canceled");
 
       case DioExceptionType.unknown:
+        debugPrint("$dioError");
+        // if (dioError.message!.contains("SocketException")) {
+        //   return ServerFailure("No internet connection");
+        // }
         return ServerFailure("Unexpected error, Please try again!");
       default:
         return ServerFailure("Ops an error occured, Please try again");

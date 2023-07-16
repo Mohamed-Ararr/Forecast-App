@@ -16,7 +16,7 @@ class LoadingProgress extends StatelessWidget {
             strokeWidth: 2.5,
           ),
           const SizedBox(height: 20),
-          const Text("Fetching data..."),
+          const Text("Fetch current location..."),
         ],
       ),
     );

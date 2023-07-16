@@ -43,6 +43,7 @@ class HomeRepoImpl implements HomeRepo {
       return Right(forecastModel);
     } catch (e) {
       if (e is DioException) {
+        debugPrint("$e");
         return Left(ServerFailure.fromDioError(e));
       } else {
         return Left(ServerFailure(e.toString()));
