@@ -22,6 +22,7 @@ class ForecastApp extends StatelessWidget {
     return BlocProvider<FetchCityForecastCubit>(
       create: (context) => FetchCityForecastCubit(locator.get<HomeRepoImpl>()),
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.routes,
         theme: ThemeData(
           fontFamily: "Chakra Petch",

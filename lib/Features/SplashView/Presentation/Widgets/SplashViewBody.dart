@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 import "package:weather_app/Core/AppRouter.dart";
 
+import "../../../../ConstantValues.dart";
 import "../../../../Core/AppFonts.dart";
 
 class SplashViewBody extends StatefulWidget {
@@ -24,9 +25,18 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Text(
-            "Forecast App",
-            style: AppFonts.appTitle,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                kAppLogo,
+                scale: 2.5,
+              ),
+              Text(
+                "ForecastNow",
+                style: AppFonts.appTitle,
+              ),
+            ],
           ),
         ),
       ),

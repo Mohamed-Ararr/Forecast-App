@@ -15,3 +15,4 @@ List<String> kStatList = [
 ];
 const String sunrise = "Assets/Images/sunrise.png";
 const String sunset = "Assets/Images/sunset.png";
+const String kAppLogo = "Assets/Images/logo.png";
