@@ -3,6 +3,7 @@ import "package:flutter_bloc/flutter_bloc.dart";
 import "package:weather_app/ConstantValues.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityDetailsBox.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/CityTempContainer.dart";
+import "package:weather_app/Features/HomeView/Presentation/Widgets/FailureWidget.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/FloatingButton.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/StatsGridview.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/TodayForecast.dart";
@@ -63,7 +64,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 ),
               );
             } else if (state is FetchCityForecastFailure) {
-              return Center(child: Text(state.errorMsg));
+              return FailureWidget(errorMsg: state.errorMsg);
             } else {
               return const LoadingProgress();
             }

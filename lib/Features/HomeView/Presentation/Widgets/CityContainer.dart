@@ -35,7 +35,6 @@ class CityContainer extends StatelessWidget {
                 AppRouter.cityView,
                 extra: forecastModel,
               );
-              debugPrint("${forecastModel.days?.length}");
             },
             icon: const Icon(
               FontAwesomeIcons.anglesRight,

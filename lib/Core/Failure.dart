@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -35,9 +37,9 @@ class ServerFailure extends Failure {
 
       case DioExceptionType.unknown:
         debugPrint("$dioError");
-        // if (dioError.message!.contains("SocketException")) {
-        //   return ServerFailure("No internet connection");
-        // }
+        if (dioError.error is SocketException) {
+          return ServerFailure("No internet connection");
+        }
         return ServerFailure("Unexpected error, Please try again!");
       default:
         return ServerFailure("Ops an error occured, Please try again");
