@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 abstract class Failure {
   final String errorMsg;
@@ -12,35 +9,31 @@ abstract class Failure {
 class ServerFailure extends Failure {
   ServerFailure(super.errorMsg);
 
-  factory ServerFailure.fromDioError(DioException dioError) {
+  factory ServerFailure.fromDioError(DioError dioError) {
     switch (dioError.type) {
-      case DioExceptionType.connectionTimeout:
+      case DioErrorType.connectionTimeout:
         return ServerFailure("Connection timeout with API server!");
 
-      case DioExceptionType.sendTimeout:
+      case DioErrorType.sendTimeout:
         return ServerFailure("Send timeout with API server!");
 
-      case DioExceptionType.receiveTimeout:
+      case DioErrorType.receiveTimeout:
         return ServerFailure("Receive timeout with API server!");
 
-      case DioExceptionType.badCertificate:
+      case DioErrorType.badCertificate:
         return ServerFailure("Bad certificate with API server!");
 
-      case DioExceptionType.badResponse:
+      case DioErrorType.badResponse:
         return ServerFailure("Bad response with API server!");
 
-      case DioExceptionType.connectionError:
-        return ServerFailure("Connection error with API server!");
-
-      case DioExceptionType.cancel:
+      case DioErrorType.cancel:
         return ServerFailure("Request to API server canceled");
 
-      case DioExceptionType.unknown:
-        debugPrint("$dioError");
-        if (dioError.error is SocketException) {
-          return ServerFailure("No internet connection");
-        }
-        return ServerFailure("Unexpected error, Please try again!");
+      case DioErrorType.connectionError:
+        return ServerFailure("Connection error with API server");
+
+      case DioErrorType.unknown:
+        return ServerFailure("No Internet Connection!");
       default:
         return ServerFailure("Ops an error occured, Please try again");
     }

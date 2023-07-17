@@ -16,7 +16,12 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, ForecastModel>> fetchCity(String cityName) async {
     try {
+      debugPrint('Before API request'); // Logging statement
+
       Map<String, dynamic> data = await apiService.get(cityName);
+
+      debugPrint('After API request'); // Logging statement
+
       ForecastModel forecastModel = ForecastModel(
         city: data["location"]["name"],
         country: data["location"]["country"],
@@ -38,8 +43,8 @@ class HomeRepoImpl implements HomeRepo {
       );
       return Right(forecastModel);
     } catch (e) {
-      if (e is DioException) {
-        debugPrint("$e");
+      debugPrint('Exception: $e');
+      if (e is DioError) {
         return Left(ServerFailure.fromDioError(e));
       } else {
         return Left(ServerFailure(e.toString()));
