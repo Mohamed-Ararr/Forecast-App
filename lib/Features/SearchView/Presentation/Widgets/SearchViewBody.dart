@@ -4,7 +4,9 @@ import "package:flutter/material.dart";
 import "package:geocoding/geocoding.dart";
 import "package:geolocator/geolocator.dart";
 import "package:go_router/go_router.dart";
+import "package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart";
 import "package:weather_app/ConstantValues.dart";
+import "package:weather_app/Core/AppColors.dart";
 import "package:weather_app/Core/AppFonts.dart";
 import "package:weather_app/Core/AppRouter.dart";
 import "package:weather_app/Features/HomeView/Presentation/Widgets/ConfirmButton.dart";
@@ -67,6 +69,7 @@ class _SearchViewBodyState extends State<SearchViewBody> {
   GlobalKey<FormState> key = GlobalKey<FormState>();
   String? city;
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -107,13 +110,29 @@ class _SearchViewBodyState extends State<SearchViewBody> {
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () async {
+                  setState(() {
+                    isLoading = !isLoading;
+                  });
                   city = await _getLocation();
                   GoRouter.of(context).push(
                     AppRouter.homeView,
                     extra: city,
                   );
+                  setState(() {
+                    isLoading = !isLoading;
+                  });
                 },
-                child: const Text("Continue with your current location?"),
+                child: isLoading
+                    ? CircularProgressIndicator(
+                        strokeWidth: 2.5,
+                        color: AppColors.whiteColor,
+                      )
+                    : Text(
+                        "Continue with your current location?",
+                        style: TextStyle(
+                          color: AppColors.greyColor,
+                        ),
+                      ),
               ),
               const Spacer(),
             ],
